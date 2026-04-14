@@ -1,7 +1,7 @@
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 import type Stripe from "stripe";
-import { stripe } from "@/lib/stripe";
+import { getStripe } from "@/lib/stripe";
 import { createPrintifyOrder } from "@/lib/printify";
 import { getSupabaseAdminClient } from "@/lib/supabase-admin";
 
@@ -54,6 +54,7 @@ function assertAddress(session: Stripe.Checkout.Session) {
 }
 
 async function mapPrintifyLineItems(sessionId: string) {
+  const stripe = getStripe();
   const lineItems = await stripe.checkout.sessions.listLineItems(sessionId, {
     limit: 100,
     expand: ["data.price.product"],
@@ -194,6 +195,7 @@ export async function POST(request: Request) {
 
   let event: Stripe.Event;
   try {
+    const stripe = getStripe();
     event = stripe.webhooks.constructEvent(body, signature, webhookSecret);
   } catch (error) {
     const message = error instanceof Error ? error.message : "Invalid webhook payload.";

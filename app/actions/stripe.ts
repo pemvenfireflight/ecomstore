@@ -1,7 +1,7 @@
 "use server";
 
 import crypto from "node:crypto";
-import { stripe } from "@/lib/stripe";
+import { getStripe } from "@/lib/stripe";
 import { getSupabaseAdminClient } from "@/lib/supabase-admin";
 import type { CartItem } from "@/stores/cart";
 
@@ -59,6 +59,8 @@ export async function createEmbeddedCheckoutSession(input: CreateEmbeddedCheckou
   if (orderError) {
     throw new Error(`Could not persist order draft: ${orderError.message}`);
   }
+
+  const stripe = getStripe();
 
   const session = await stripe.checkout.sessions.create({
     mode: "payment",
