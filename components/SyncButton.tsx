@@ -37,10 +37,14 @@ export function SyncButton() {
 
   return (
     <div className="flex flex-col items-start gap-2">
-      <Button onClick={onSync} disabled={loading} className="rounded-full px-6">
-        {loading ? "Syncing..." : "Sync"}
+      <Button
+        onClick={onSync}
+        disabled={loading}
+        className="rounded-full bg-gradient-to-r from-orange-500 to-rose-500 px-6 text-xs font-semibold tracking-[0.14em] uppercase text-white hover:from-orange-600 hover:to-rose-600"
+      >
+        {loading ? "Syncing..." : "Sync Printify"}
       </Button>
-      {message ? <p className="text-xs text-zinc-500 dark:text-zinc-400">{message}</p> : null}
+      {message ? <p className="text-xs text-zinc-600 dark:text-zinc-300">{message}</p> : null}
     </div>
   );
 }

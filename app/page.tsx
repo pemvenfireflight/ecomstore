@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ProductGrid } from "@/components/ProductGrid";
+import { SyncButton } from "@/components/SyncButton";
 
 const stylePills = ["Utility Tees", "Oversized Fits", "Station Basics", "Graphic Drops", "Layering Pieces"];
 
@@ -87,12 +88,13 @@ export default function Home() {
         </section>
 
         <section id="shop" className="space-y-6">
-          <div className="flex items-end justify-between gap-4 border-b border-orange-200/80 pb-4 dark:border-zinc-800">
+          <div className="flex flex-col gap-4 border-b border-orange-200/80 pb-4 md:flex-row md:items-end md:justify-between dark:border-zinc-800">
             <div>
               <p className="text-[11px] font-medium tracking-[0.2em] text-rose-600 uppercase dark:text-rose-300">Shop</p>
               <h2 className="mt-1 text-2xl font-semibold tracking-tight md:text-3xl">New In This Week</h2>
+              <p className="mt-1 text-xs tracking-[0.16em] text-zinc-500 uppercase">Curated for everyday wear</p>
             </div>
-            <p className="hidden text-xs tracking-[0.16em] text-zinc-500 uppercase md:block">Curated for everyday wear</p>
+            <SyncButton />
           </div>
 
           <ProductGrid />
