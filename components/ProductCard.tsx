@@ -15,7 +15,7 @@ type ProductCardProps = {
 export function ProductCard({ printifyId, title, description, price, imageUrl, variantCount }: ProductCardProps) {
   return (
     <Link href={`/products/${printifyId}`} className="block">
-      <Card className="group overflow-hidden rounded-none border-zinc-200 bg-transparent shadow-none transition-all dark:border-zinc-800">
+      <Card className="group overflow-hidden rounded-none border-zinc-200 bg-transparent shadow-none transition-all hover:border-rose-300 dark:border-zinc-800 dark:hover:border-zinc-600">
         <div className="relative aspect-[3/4] w-full overflow-hidden bg-zinc-100 dark:bg-zinc-900">
           {imageUrl ? (
             <Image
@@ -26,13 +26,13 @@ export function ProductCard({ printifyId, title, description, price, imageUrl, v
               sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
             />
           ) : (
-            <div className="flex h-full flex-col items-center justify-center bg-[linear-gradient(155deg,#f4f4f5,#d4d4d8)] text-zinc-700 dark:bg-[linear-gradient(155deg,#18181b,#27272a)] dark:text-zinc-300">
+            <div className="flex h-full flex-col items-center justify-center bg-[linear-gradient(155deg,#ffe3d1,#ffd5e5,#fde68a)] text-zinc-800 dark:bg-[linear-gradient(155deg,#18181b,#3f3f46)] dark:text-zinc-300">
               <span className="text-[10px] tracking-[0.22em] uppercase">Firehouse Apparel</span>
               <span className="mt-2 text-xs tracking-[0.16em] uppercase">Coming Soon</span>
             </div>
           )}
 
-          <span className="absolute left-3 top-3 rounded-full border border-white/60 bg-white/90 px-2.5 py-1 text-[10px] font-medium tracking-[0.14em] text-zinc-900 uppercase">
+          <span className="absolute left-3 top-3 rounded-full border border-white/60 bg-gradient-to-r from-orange-500 to-rose-500 px-2.5 py-1 text-[10px] font-medium tracking-[0.14em] text-white uppercase">
             New
           </span>
         </div>
@@ -42,7 +42,7 @@ export function ProductCard({ printifyId, title, description, price, imageUrl, v
             <CardTitle className="line-clamp-2 text-sm font-medium tracking-[0.03em] text-zinc-900 dark:text-zinc-100">
               {title}
             </CardTitle>
-            <Badge variant="secondary" className="shrink-0 rounded-full px-3 py-1 text-[10px] tracking-[0.08em] uppercase">
+            <Badge variant="secondary" className="shrink-0 rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-[10px] tracking-[0.08em] text-orange-700 uppercase dark:border-zinc-700 dark:bg-zinc-900 dark:text-orange-300">
               ${price.toFixed(2)}
             </Badge>
           </div>
