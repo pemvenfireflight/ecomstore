@@ -30,9 +30,9 @@ export default async function ShopPage({
 
   return (
     <div className="space-y-6">
-      <section className="rounded-3xl border border-white/10 bg-neutral-900/70 p-6">
-        <h1 className="text-3xl font-bold text-white">Shop All Products</h1>
-        <p className="mt-2 text-sm text-neutral-400">
+      <section className="rounded-2xl border border-zinc-200 bg-white p-6">
+        <h1 className="text-3xl font-black uppercase tracking-[0.08em] text-zinc-900">Shop All Products</h1>
+        <p className="mt-2 text-sm text-zinc-600">
           {products.length} item{products.length === 1 ? "" : "s"} available.
         </p>
         <div className="mt-4 grid gap-3 md:grid-cols-[1fr_220px]">
@@ -41,7 +41,7 @@ export default async function ShopPage({
               name="q"
               defaultValue={q}
               placeholder="Search by keyword (hoodie, ems, duty, patriot...)"
-              className="border-white/15 bg-neutral-950 text-white"
+              className="border-zinc-300 bg-white text-zinc-900"
             />
           </form>
           <form action="/shop">
@@ -49,7 +49,7 @@ export default async function ShopPage({
             <select
               name="sort"
               defaultValue={sort}
-              className="h-8 w-full rounded-lg border border-white/15 bg-neutral-950 px-2 text-sm text-white"
+              className="h-8 w-full rounded-lg border border-zinc-300 bg-white px-2 text-sm text-zinc-900"
             >
               <option value="featured">Sort: Featured / A-Z</option>
               <option value="price-asc">Sort: Price low to high</option>

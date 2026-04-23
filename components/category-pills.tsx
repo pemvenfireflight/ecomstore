@@ -9,10 +9,10 @@ export function CategoryPills({ active = "all" }: { active?: CatalogCategory }) 
       <Link
         href="/shop"
         className={cn(
-          "rounded-full border px-3 py-1.5 text-xs font-medium transition md:text-sm",
+          "rounded-md border px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] transition md:text-sm",
           active === "all"
-            ? "border-red-400/70 bg-red-500/20 text-red-100"
-            : "border-white/15 bg-white/5 text-neutral-300 hover:bg-white/10",
+            ? "border-zinc-900 bg-zinc-900 text-white"
+            : "border-zinc-300 bg-white text-zinc-700 hover:border-orange-500 hover:text-orange-600",
         )}
       >
         All
@@ -22,10 +22,10 @@ export function CategoryPills({ active = "all" }: { active?: CatalogCategory }) 
           key={category.key}
           href={`/categories/${category.key}`}
           className={cn(
-            "rounded-full border px-3 py-1.5 text-xs font-medium transition md:text-sm",
+            "rounded-md border px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] transition md:text-sm",
             active === category.key
-              ? "border-red-400/70 bg-red-500/20 text-red-100"
-              : "border-white/15 bg-white/5 text-neutral-300 hover:bg-white/10",
+              ? "border-zinc-900 bg-zinc-900 text-white"
+              : "border-zinc-300 bg-white text-zinc-700 hover:border-orange-500 hover:text-orange-600",
           )}
         >
           {category.label}

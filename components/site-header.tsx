@@ -4,42 +4,36 @@ import { CartButton } from "@/components/cart-button";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
-  { href: "/shop", label: "Shop" },
+  { href: "/shop", label: "All Products" },
   { href: "/categories/hfd-duty", label: "HFD Duty" },
-  { href: "/categories/off-duty-fire", label: "Off Duty Fire" },
-  { href: "/categories/flow-iv", label: "Flow IV" },
+  { href: "/categories/hfd-explorers", label: "HFD Explorers" },
+  { href: "/shop?q=hat", label: "Headwear" },
+  { href: "/shop?q=hoodie", label: "Hoodies" },
 ];
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-30 border-b border-white/10 bg-neutral-950/85 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3">
+    <header className="sticky top-0 z-40 border-b border-black/10 bg-white/95 text-zinc-900 backdrop-blur">
+      <div className="bg-orange-500 px-4 py-1 text-center text-xs font-semibold uppercase tracking-[0.22em] text-white">
+        First Responder Owned • Fast U.S. Shipping
+      </div>
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-3 px-5 py-4">
         <Link href="/" className="group inline-flex items-center gap-2">
-          <span className="rounded-md border border-red-400/50 bg-red-500/20 px-2 py-1 text-xs font-semibold tracking-widest text-red-100">
-            DFI
-          </span>
-          <span className="text-sm font-semibold tracking-wide text-white group-hover:text-amber-200">
-            Defend Freedom Industries
-          </span>
+          <span className="rounded-md bg-zinc-900 px-2 py-1 text-xs font-black tracking-[0.3em] text-white">DFI</span>
+          <span className="text-sm font-semibold tracking-[0.08em] uppercase group-hover:text-orange-600">Defend Freedom Industries</span>
         </Link>
 
-        <nav className="hidden items-center gap-5 md:flex">
+        <nav className="hidden items-center gap-5 lg:flex">
           {NAV_LINKS.map((item) => (
-            <Link key={item.href} href={item.href} className="text-sm text-neutral-300 transition hover:text-white">
+            <Link key={item.href} href={item.href} className="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-700 transition hover:text-orange-600">
               {item.label}
             </Link>
           ))}
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link
-            href="/shop"
-            className={cn(
-              buttonVariants({ size: "sm" }),
-              "hidden bg-red-600 text-white hover:bg-red-500 md:inline-flex",
-            )}
-          >
-            Explore Gear
+          <Link href="/shop" className={cn(buttonVariants({ size: "sm" }), "hidden bg-zinc-900 text-white hover:bg-zinc-800 md:inline-flex")}>
+            Shop Now
           </Link>
           <CartButton />
         </div>

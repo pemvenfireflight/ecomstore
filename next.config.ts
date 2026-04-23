@@ -15,6 +15,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "cdn.printify.com",
       },
+      {
+        protocol: "https",
+        hostname: "www.defendfreedomindustries.com",
+      },
     ],
   },
 };
