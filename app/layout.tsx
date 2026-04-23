@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { SalesPop } from "@/components/SalesPop";
-import { StickyHeader } from "@/components/StickyHeader";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,25 +15,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Firehouse Apparel | Built for First Responders",
+  metadataBase: new URL("https://www.defendfreedomindustries.com"),
+  title: {
+    default: "Defend Freedom Industries | Premium First Responder Apparel",
+    template: "%s | Defend Freedom Industries",
+  },
   description:
-    "Premium apparel inspired by fire, rescue, and service professionals. Durable everyday tees with station-pride design language.",
+    "Premium apparel built for those who serve and protect — firefighters, police, EMS, and military heroes.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">
-        <StickyHeader />
-        {children}
-        <SalesPop />
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}>
+      <body className="min-h-full bg-neutral-950 text-neutral-100">
+        <SiteHeader />
+        <main className="mx-auto w-full max-w-7xl flex-1 px-5 py-8">{children}</main>
+        <SiteFooter />
       </body>
     </html>
   );

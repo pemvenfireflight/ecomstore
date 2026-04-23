@@ -42,6 +42,7 @@ export function Reviews({ productId }: ReviewsProps) {
   }, [productId]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     void loadReviews();
   }, [loadReviews]);
 
